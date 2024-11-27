@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Preview</title>
+    <link href="pdf-preview.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header section containing the page title -->
+    <header class="grid-item header">
+        <h1><i class="fa-solid fa-user-doctor"></i> Emergency Doctor</h1>
+    </header>
+
+    <main class="grid-container">
+        <!-- Patient Information Section -->
+        <section id="patient-info" class="grid-item patient-info">
+            <h3>Patient Information</h3>
+            <div class="flex-container">
+                <!-- Input fields for patient's name, age, and contact information -->
+                <label>Patient Name: <input type="text" id="patient-name" placeholder="Your Name"></label>
+                <label>Patient Age: <input type="text" id="patient-age" placeholder="Your Age"></label>
+                <label>Patient Contact: <input type="text" id="patient-contact" placeholder="Your Contact"></label>
+            </div>
+            <div class="flex-container location-section">
+                <!-- Input for patient's location with a button to auto-locate -->
+                <label>Patient Location:</label>
+                <input type="text" id="patient-location" placeholder="Add Location">
+                <button id="locate-me">Locate Me</button>
+            </div>
+        </section>        
+
+        <!-- Injury Diagrams Section displaying front and back diagrams of a human body -->
+        <section id="injury-diagrams" class="grid-item diagrams">
+            <h3>Injury Diagrams</h3>
+            <div class="flex-container">
+                <div id="front-diagram">Front Diagram</div>
+                <div id="back-diagram">Back Diagram</div>
+            </div>
+        </section>
+
+        <!-- Injury Details Section for showing the type and severity of the injury -->
+        <section id="injury-details" class="grid-item injury-details">
+            <h3>Injury Details</h3>
+            <p>Injury Type: <span id="injury-type">[Type]</span></p>
+            <p>Severity Level:</p>
+            <div id="severity-bar"></div> <!-- Visual indicator of severity -->
+            <p>Additional Notes:</p>
+            <textarea id="additional-notes" aria-label="Additional Notes" readonly></textarea>
+        </section>
+
+        <!-- Section for displaying uploaded images associated with the injury -->
+        <section id="uploaded-images" class="grid-item uploaded-images">
+            <h3>Uploaded Images</h3>
+            <div id="images-container" class="grid-container images-grid">
+                <!-- Images are dynamically injected here via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Footer Section with legal disclaimers and operational buttons -->
+        <footer class="grid-item footer">
+            <div class="footer-buttons">
+                <button id="back-to-injury-document">Back</button>
+                <button id="satisfied-button">Satisfied</button>
+            </div>
+            <div class="disclaimer-grid">
+                <!-- Disclaimers regarding the use and distribution of the document -->
+                <p class="disclaimer">
+                    <strong>Disclaimer:</strong> Some data in this document, such as <strong>patient details</strong> or <strong>injury information</strong>, are automatically filled by the app. Users can review and modify this information here in the <strong>PDF Preview</strong>, the <strong>Injury Selection</strong> section, or the <strong>Injury Document</strong> section. This is the <strong>final step</strong> for corrections before sharing the document. 
+                </p>
+                <p class="disclaimer">
+                    Share this document <strong>only</strong> with qualified <strong>health professionals</strong>, trusted relatives, or friends who need to know what has happened to you. <strong>Medical advice</strong> should <strong>only</strong> be taken from certified healthcare professionals. The creators of this app are <strong>not liable</strong> for any misinterpretation or misuse of this document.
+                </p>
+            </div>
+        </footer>
+    </main>
+    <script src="pdf-preview.js"></script>
+    <!-- FontAwesome for icons, loaded asynchronously to not block rendering -->
+    <script src="https://kit.fontawesome.com/1a552ea376.js" crossorigin="anonymous" async></script>
+</body>
+</html>

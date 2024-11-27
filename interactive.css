@@ -1,0 +1,79 @@
+/* Root Custom Properties */
+:root {
+    --background: #4A90E2;
+    --selected: #FF0000;
+    --body-hover: rgba(255, 0, 0, 0.3);
+}
+
+/* Container styling for the background image and SVG overlay */
+.body-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style the background image to fully cover the area of its container */
+.body-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* SVG overlay specific styles for precise positioning over the image */
+#front_body,
+#back_body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: all;    /* Ensures that the SVG is clickable */
+}
+
+/* Default styles for paths within the SVG, primarily to make them interactive */
+path {
+    fill: transparent;
+    stroke: transparent;
+    pointer-events: all;
+    transition: fill 0.3s ease, stroke 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect for paths to indicate interactive areas */
+path:hover {
+    fill: var(--body-hover);
+    stroke: var(--background);
+}
+
+/* Style for paths that are selected */
+path.selected {
+    fill: var(--selected);
+    stroke: var(--selected);
+}
+
+.body-overlay {
+    mix-blend-mode: overlay;
+}
+
+/* Tooltip styling for displaying names of body parts on hover */
+.tooltip {
+    position: absolute;
+    padding: 8px;
+    background-color: white;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+}
+
+/* Makes the tooltip visible */
+.tooltip.visible {
+    display: block;
+    opacity: 1;
+}

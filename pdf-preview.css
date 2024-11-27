@@ -1,0 +1,233 @@
+/* Global styles and grid setup for the entire body, promoting a consistent layout throughout the application */
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    height: 100vh;
+    margin: 0;
+}
+
+/* Main content styling, emphasizing a columnar layout for direct child elements */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Generic styling for grid items to ensure consistency in width and box-sizing */
+.grid-item {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Header specific styling for visual emphasis */
+.header {
+    grid-area: header;
+    text-align: center;
+    background: #4A90E2;
+    color: white;
+    padding: 1rem;
+}
+
+.header i {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+
+/* Styling for various sections that contain detailed information about the patient or injury */
+.patient-info, .diagrams, .injury-details, .uploaded-images {
+    background: #f9f9f9;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Flex container for aligning items vertically with a gap */
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+/* Specific layout adjustments for the location section within patient info */
+.location-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Image styling within the injury diagrams section */
+#injury-diagrams img {
+    max-width: 100%;
+    max-height: 300px;
+    margin: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Grid layout for injury diagrams for a responsive design approach */
+#injury-diagrams {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Specific styling for the severity bar to visually represent injury severity */
+#severity-bar {
+    height: 20px;
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Animated effect for the severity bar to show filling based on severity */
+#severity-bar::after {
+    content: "";
+    display: block;
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Styling for severity label providing immediate feedback on severity level */
+#severity-label {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #424242;
+}
+
+/* Basic styling for notes preview section */
+.notes-preview {
+    width: 100%;
+    min-height: 2.5rem;
+    padding: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--text-color);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    white-space: pre-wrap;
+}
+
+/* Grid layout for the images section, allowing two columns with gap */
+.images-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+/* Generic preview item styling */
+.preview-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensures images and videos fill their container, maintaining aspect ratio without distortion */
+.preview-image,
+.preview-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Footer styling to match the header for consistency */
+.footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    background: #4A90E2;
+    color: white;
+    text-align: center;
+}
+
+/* Flex container styling for buttons in the footer */
+.footer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Responsive grid for disclaimers with minimum column width */
+.disclaimer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+/* Fine-tuned typography for disclaimers */
+.disclaimer {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* Strong emphasis within disclaimers for crucial information */
+.disclaimer strong {
+    color: white;
+    font-weight: bold;
+}
+
+/* Generic button styling with interactivity and accessibility considerations */
+button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus state for accessibility */
+button:focus {
+    outline: 2px solid #4A90E2;
+    outline-offset: 2px;
+}
+
+/* Hover state for visual feedback */
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Active state for tactile feedback */
+button:active {
+    transform: scale(0.95);
+}
+
+/* Specific styling for various button types within the application */
+#locate-me {
+    background-color: #4A90E2;
+    color: white;
+}
+
+#back-to-injury-document, #satisfied-button {
+    background-color: #F4F4F4;
+    color: #424242;
+}
+
+#satisfied-button {
+    background-color: #9A6735;
+    color: white;
+}
